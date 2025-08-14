@@ -31,18 +31,8 @@
  * -------------------------------------------------------------------------
  */
 
-/**
- * Plugin install process
- */
-function plugin_{LNAME}_install(): bool
-{
-    return true;
-}
+require __DIR__ . '/../../../phpunit/bootstrap.php';
 
-/**
- * Plugin uninstall process
- */
-function plugin_{LNAME}_uninstall(): bool
-{
-    return true;
+if (!Plugin::isPluginActive("{LNAME}")) {
+    throw new RuntimeException("Plugin {LNAME} is not active in the test database");
 }
